@@ -52,7 +52,7 @@
   {
     "@context" : "http://schema.org",
     "@type" : "Blog",
-    "name" : "miguelgfierro",
+    "name" : "musicofreason",
     "url" : "{% http_or_https %}{% current_site %}",
     "sameAs" : [
       "{% twitter_url %}",
@@ -76,6 +76,9 @@
       {% for aboutp in about_pages %}
         <a class="navigation-bar-item-text" href="{% http_or_https %}{% current_site %}{{ aboutp.url }}">About</a>
       {% endfor%}
+    </div>
+    <div class="navigation-bar-item">
+      <a class="navigation-bar-item-text" href="/gaussianmodels/">gaussianmodels</a>
     </div>
     <form action="/search" method="GET" class="navigation-bar-search">
       <input class="navigation-bar-search-input" type="text" placeholder="Search..." name="q">

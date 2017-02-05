@@ -11,3 +11,6 @@ img/19*/
 .idea/
 img/upload/
 sciblog/private.py
+*.ini
+*.conf
+*.sh

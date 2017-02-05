@@ -25,7 +25,7 @@
     <meta property="og:type"                content="article" />
     <meta property="og:title"               content="{{ object.title }}" />
     <meta property="og:description"         content="{{ object.abstract }}" />
-    <meta property="og:image"               content="{% http_or_https %}{% current_site %}{% static 'blog/img/hoaphumanoid.png' %}" />
+    <meta property="og:image"               content="{% http_or_https %}{% current_site %}{% static 'blog/img/logo.png' %}" />
 
     <!-- Script MathJax to add latex code to the page (only loaded if there are latex formulas) -->
     {% if object.has_latex_formula %}
@@ -148,8 +148,8 @@ FB.ui({
         <a href="{% linkedin_url %}">Linkedin</a> •
         <a href="{% rss_url %}">RSS</a>
       <br>
-      Designed by Miguel González-Fierro -
-      <a style="padding:0px;" href="https://github.com/miguelgfierro/sciblog">Github</a>
+      Design by
+      <a style="padding:0px;" href="https://github.com/miguelgfierro/sciblog">Miguel González-Fierro</a>
 </div>
 
 {% endblock %}

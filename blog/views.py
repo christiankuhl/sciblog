@@ -7,6 +7,7 @@ import datetime
 from django.core.paginator import Paginator, EmptyPage
 from django.db.models import Q
 from django.shortcuts import render_to_response
+from django.contrib.flatpages.models import FlatPage
 
 class PostsFeed(Feed):
     title = "Music of Reason"
@@ -32,7 +33,7 @@ class PostsFeed(Feed):
 
 def getSearchResults(request):
     """
-    Search for a post by title or abstract. To search http://example.com/search?q=title
+    Search for a post by title or abstract. To search http://musicofreason.de/search?q=title
     """
     # Get the query data
     query = request.GET.get('q', '')
@@ -40,7 +41,6 @@ def getSearchResults(request):
 
     # Query the database
     results = Post.objects.filter(Q(title__icontains=query) | Q(abstract__icontains=query))
-
     # Add pagination
     pages = Paginator(results, 5)
 

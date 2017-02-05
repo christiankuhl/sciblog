@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     'libs.ckeditor', # for managing text,images and formulas
     'libs.ckeditor_uploader',
 )
-SITE_ID = 1
+SITE_ID = 3
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -125,15 +125,15 @@ DESKTOP_TEMPLATE_DIRS = (
 
 # Disqus configuration (for managing comments)
 # To install disqus http://django-disqus.readthedocs.org/en/latest/index.html
-DISQUS_API_KEY = ''
-DISQUS_WEBSITE_SHORTNAME = ''
+DISQUS_API_KEY = 'ELxieP8XDmv4l7A14ptjFiTgMkOTcnIpDMj6BBJpbetwwBcMIMgFQQ2JvjFemIHT'
+DISQUS_WEBSITE_SHORTNAME = 'musicofreason'
 
 # Http protocol with (https://) or without SSL (http://)
 # NOTE: You need to have a SSL certificate installed before setting this flag to True
 HTTPS = True
 
 # Social Networks
-FACEBOOK_ID = '' #for Facebook tracking
+FACEBOOK_ID = '1452207144803935' #for Facebook tracking
 FACEBOOK_URL = ''
 TWITTER_URL = 'https://twitter.com/musicofreason'
 TWITTER_HANDLE = 'musicofreason'
