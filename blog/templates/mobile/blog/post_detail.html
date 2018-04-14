@@ -61,13 +61,18 @@
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-FB.ui({
-  method: 'share_open_graph',
-  action_type: 'og.likes',
-  action_properties: JSON.stringify({
-      object:'{% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}',
-  })
-}, function(response){});
+</script>
+<script>
+fbShareWLike = function(){
+  FB.ui({
+    method: 'share_open_graph',
+    action_type: 'og.likes',
+    action_properties: JSON.stringify({
+        object:'{% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}',
+        fb:'explicitly_shared',
+    })
+  }, function(response){});
+};
 </script>
 
 
@@ -77,7 +82,7 @@ FB.ui({
         <div class="two columns">&nbsp;</div>
         <div class="twelve columns">
             <div class="social-icons">
-                <a class="social-icons-fb"  href="https://www.facebook.com/dialog/share?app_id={% facebook_id %}&display=popup&href={% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}&redirect_uri=http://{{ object.site }}{{ object.get_absolute_url }}">
+                <a class="social-icons-fb"  onclick="fbShareWLike()">
                 </a>
                 <a class="social-icons-tw"  href="https://twitter.com/intent/tweet?text={{ object.title }}&url={% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}&via={% twitter_handle %}">
                 </a>
@@ -85,7 +90,7 @@ FB.ui({
                 </a>
                 <a class="social-icons-lk"  href="https://www.linkedin.com/shareArticle?mini=true&text={{ object.title }}&url={% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}&summary={{ object.abstract }}">
                 </a>
-                <a class="social-icons-email"  href="mailto:?subject={{ object.title }}&body=Check out this article I read on Sciblog: {% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}">
+                <a class="social-icons-email"  href="mailto:?subject={{ object.title }}&body=Check out this article I read on Music of Reason: {% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}">
                 </a>
                 <a class="social-icons-whatsapp"  href="whatsapp://send?text={{ object.title }} {% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}"  data-action="share/whatsapp/share">
                 </a>

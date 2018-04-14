@@ -69,6 +69,7 @@ fbShareWLike = function(){
     action_type: 'og.likes',
     action_properties: JSON.stringify({
         object:'{% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}',
+        fb:'explicitly_shared',
     })
   }, function(response){});
 };
