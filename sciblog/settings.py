@@ -35,13 +35,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'django_mobile',
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django.contrib.syndication',
     'django.contrib.sitemaps',
-    'libs.django-disqus.disqus', # for comments
-    'libs.ckeditor', # for managing text,images and formulas
-    'libs.ckeditor_uploader',
+    'disqus', # for comments
+    'ckeditor', # for managing text,images and formulas
+    'ckeditor_uploader',
 )
 SITE_ID = 3
 
@@ -49,20 +50,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django_mobile.middleware.MobileDetectionMiddleware',
+    'django_mobile.middleware.SetFlavourMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'blog.middleware.MobileTemplatesMiddleware',
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.auth.context_processors.auth",
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    "django.core.context_processors.media",
-    "django.core.context_processors.static",
 )
 
 #list of IPs able to see the toolbar
@@ -71,7 +64,6 @@ INTERNAL_IPS=('127.0.0.1','localhost',)
 ROOT_URLCONF = 'sciblog.urls'
 
 WSGI_APPLICATION = 'sciblog.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -85,15 +77,10 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = False
-
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
@@ -111,17 +98,20 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'blog','static'),
 )
 
-# Template directory
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'blog', 'templates'),
-)
-MOBILE_TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'blog', 'templates', 'mobile'),
-)
-DESKTOP_TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'blog', 'templates', 'desktop'),
-)
+TEMPLATE_LOADERS = ['django_mobile.loader.Loader']
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'blog',)],
+        'APP_DIRS': False,
+        'OPTIONS': {'loaders': ['django_mobile.loader.Loader',
+                                'django.template.loaders.app_directories.Loader'],
+                    'context_processors': ["django.contrib.auth.context_processors.auth",
+                                            "django_mobile.context_processors.flavour"]
+                    }
+    },
+]
 
 # Disqus configuration (for managing comments)
 # To install disqus http://django-disqus.readthedocs.org/en/latest/index.html

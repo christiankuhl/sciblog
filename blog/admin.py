@@ -3,7 +3,7 @@ from blog.models import Post
 from django.contrib.flatpages.admin import FlatpageForm, FlatPageAdmin
 from django.contrib.flatpages.models import FlatPage
 from django import forms
-from libs.ckeditor.widgets import CKEditorWidget
+from ckeditor.widgets import CKEditorWidget
 
 class PostAdmin(admin.ModelAdmin):
     fieldsets = [
