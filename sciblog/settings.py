@@ -56,7 +56,6 @@ MIDDLEWARE= ('django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'django.contrib.messages.context_processors.messages',
     )
 
 #list of IPs able to see the toolbar
@@ -109,7 +108,8 @@ TEMPLATES = [
         'OPTIONS': {'loaders': ['django_mobile.loader.Loader',
                                 'django.template.loaders.app_directories.Loader'],
                     'context_processors': ["django.contrib.auth.context_processors.auth",
-                                            "django_mobile.context_processors.flavour"]
+                                            "django_mobile.context_processors.flavour",
+                                            "django.contrib.messages.context_processors.messages",]
                     }
     },
 ]
