@@ -16,6 +16,7 @@ class PostAdmin(admin.ModelAdmin):
         ('Site', 				{'fields': ['site']}),
         ('Post with formulas',	{'fields': ['has_latex_formula']}),#if true, mathjax.js is included in template (better for SEO)
         ('Content',     		{'fields': ['content']}),
+        ('Slug',                {'fields': ['slug']}),
     ]
     prepopulated_fields = {'slug': ('title',)} # new
     list_display = ('title', 'pub_date', 'was_published_recently')
