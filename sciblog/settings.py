@@ -8,6 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 import os
+import django_heroku
 # from sciblog.private import SECRETKEY, DEBUG_FLAG
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -140,3 +141,5 @@ GA_TRACKING_ID = ''
 # Ckeditor
 CKEDITOR_UPLOAD_PATH = "upload/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
+
+django_heroku.settings(locals())
