@@ -7,7 +7,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 class Post(models.Model):
     title = models.CharField(max_length=67, unique=True)
-    slug = models.SlugField(max_length=100, unique=True, blank=True, editable=False)
+    slug = models.SlugField(max_length=100, unique=True, blank=True, editable=False, prepopulate_from=('title',))
     meta_description = models.CharField('Meta description for SEO', max_length=155)#description for SEO purposes
     abstract = models.TextField('Abstract (300-500 characters)',max_length=500)
     pub_date = models.DateField('Date published')
