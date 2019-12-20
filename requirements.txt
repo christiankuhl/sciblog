@@ -3,3 +3,4 @@ markdown2>=2.3.5
 django_ckeditor>=5.8.0
 django_mobile>=0.7.0
 django_disqus>=0.5
+django_heroku
