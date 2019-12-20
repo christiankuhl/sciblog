@@ -8,7 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 import os
-from sciblog.private import SECRETKEY, DEBUG_FLAG
+# from sciblog.private import SECRETKEY, DEBUG_FLAG
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -16,13 +16,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRETKEY
+# Should be overridden
+SECRET_KEY = "ChangeMe"
 
 # Set DEBUG = False in production. Set DEBUG = True in localhost development
-# This flag is set in an external file private.py
-DEBUG = DEBUG_FLAG
+# This flag is overridden and should be False in production
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','www.musicofreason.de','musicofreason.de']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','www.musicofreason.de','musicofreason.de', 'musicofreason.herokuapp.com']
 
 DESCR_LONG = 'Music of Reason - A blog about math, finance and the universe'
 
