@@ -21,8 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = "ChangeMe"
 
 # Set DEBUG = False in production. Set DEBUG = True in localhost development
-DEBUG = False
-
+DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost','www.musicofreason.de','musicofreason.de', 'musicofreason.herokuapp.com']
 
 DESCR_LONG = 'Music of Reason - A blog about math, finance and the universe'
