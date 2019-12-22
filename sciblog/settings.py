@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = "ChangeMe"
 
 # Set DEBUG = False in production. Set DEBUG = True in localhost development
-DEBUG = False
+DEBUG = bool(os.environ["DEBUG"])
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost','www.musicofreason.de','musicofreason.de', 'musicofreason.herokuapp.com']
 
 DESCR_LONG = 'Music of Reason - A blog about math, finance and the universe'
@@ -115,7 +115,12 @@ TEMPLATES = [
 
 # Http protocol with (https://) or without SSL (http://)
 # NOTE: You need to have a SSL certificate installed before setting this flag to True
-HTTPS = True
+HTTPS = bool(os.environ["HTTPS"])
+
+# comments
+DISQUS_API_KEY = os.environ["DISQUS_API_KEY"]
+DISQUS_WEBSITE_SHORTNAME = os.environ["DISQUS_WEBSITE_SHORTNAME"]
+
 
 # Social Networks
 FACEBOOK_ID = '1452207144803935' #for Facebook tracking
