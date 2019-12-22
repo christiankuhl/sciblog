@@ -6,7 +6,7 @@ from django import forms
 from ckeditor.widgets import CKEditorWidget
 from ckeditor_uploader.fields import RichTextUploadingField
 
-class ExtendedPostForm(admin.ModelForm):
+class ExtendedPostForm(forms.ModelForm):
     locals()['content'] = forms.CharField(widget=RichTextUploadingField(blank=True, null=True), required=False, label=(u'Content'))
     class Meta:
         model = Post
