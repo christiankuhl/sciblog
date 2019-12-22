@@ -4,6 +4,13 @@ from django.contrib.flatpages.admin import FlatpageForm, FlatPageAdmin
 from django.contrib.flatpages.models import FlatPage
 from django import forms
 from ckeditor.widgets import CKEditorWidget
+from ckeditor_uploader.fields import RichTextUploadingField
+
+class ExtendedPostForm(admin.ModelForm):
+    locals()['content'] = forms.CharField(widget=RichTextUploadingField(blank=True, null=True), required=False, label=(u'Content'))
+    class Meta:
+        model = Post
+        fields = "__all__"
 
 class PostAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -22,6 +29,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'pub_date', 'was_published_recently')
     list_filter = ['pub_date']
     search_fields = ['title']
+    form = ExtendedPostForm
     def save_model(self, request, obj, form, change):
         obj.author = request.user
         obj.save()
