@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = "ChangeMe"
 
 # Set DEBUG = False in production. Set DEBUG = True in localhost development
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost','www.musicofreason.de','musicofreason.de', 'musicofreason.herokuapp.com']
 
 DESCR_LONG = 'Music of Reason - A blog about math, finance and the universe'
@@ -112,11 +112,6 @@ TEMPLATES = [
                     }
     },
 ]
-
-# Disqus configuration (for managing comments)
-# To install disqus http://django-disqus.readthedocs.org/en/latest/index.html
-DISQUS_API_KEY = 'ELxieP8XDmv4l7A14ptjFiTgMkOTcnIpDMj6BBJpbetwwBcMIMgFQQ2JvjFemIHT'
-DISQUS_WEBSITE_SHORTNAME = 'musicofreason'
 
 # Http protocol with (https://) or without SSL (http://)
 # NOTE: You need to have a SSL certificate installed before setting this flag to True
