@@ -3,10 +3,11 @@ from blog.models import Post
 from django.contrib.flatpages.admin import FlatpageForm, FlatPageAdmin
 from django.contrib.flatpages.models import FlatPage
 from django import forms
-from ckeditor.widgets import CKEditorWidget, CKEditorUploadingWidget
+from ckeditor.widgets import CKEditorWidget
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 class ExtendedPostForm(forms.ModelForm):
-    locals()['content'] = forms.CharField(widget=CKEditorUploadWidget(), required=False, label=(u'Content'))
+    locals()['content'] = forms.CharField(widget=CKEditorUploadingWidget(), required=False, label=(u'Content'))
     class Meta:
         model = Post
         fields = "__all__"
