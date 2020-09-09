@@ -145,7 +145,7 @@ CKEDITOR_CONFIGS = {
         'toolbar_Custom': [
             {'name': 'math', 'items': ['Mathjax', ]},
         ],
-        'extraPlugins': 'mathjax'),
+        'extraPlugins': 'mathjax',
     },
 }
 
