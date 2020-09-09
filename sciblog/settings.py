@@ -141,14 +141,55 @@ CKEDITOR_UPLOAD_PATH = "upload/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_CONFIGS = {
     'default': {
+        'entities': False,
+        'entities_greek': False,
+        'entities_latin': False,
         'skin': 'moono',
-        'toolbar_Custom': [
-            {'name': 'math', 'items': ['Mathjax', ]},
+        'toolbar_Basic': [
+            ['Source', '-', 'Bold', 'Italic']
         ],
-        'toolbar': 'Custom',
+        'toolbar_YouCustomToolbarConfig': [
+            {'name': 'basicstyles',
+            'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
+            {'name': 'paragraph',
+            'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+                    'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']},
+            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            '/', 
+            {'name': 'youcustomtools', 'items': [
+                'Maximize',
+                'ShowBlocks',
+                'Save',
+                'Source',
+                'Image',
+                'Embed',
+                'Mathjax',
+                'CodeSnippet',
+                'Preview',
+            ]},
+        ],
+        'toolbar': 'YouCustomToolbarConfig',
         'mathJaxLib': '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML',
-        'extraPlugins': ','.join(['mathjax',]),
-    },
+        'tabSpaces': 4,
+        'extraPlugins': ','.join(
+            [
+                'div',
+                'autolink',
+                'autogrow',
+                'widget',
+                'lineutils',
+                'clipboard',
+                'dialog',
+                'dialogui',
+                'elementspath',
+                'mathjax',
+                'embed',
+                'codesnippet',
+                'image2',
+            ]),
+    }
 }
 
 django_heroku.settings(locals())
