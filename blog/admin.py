@@ -8,7 +8,7 @@ from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from ckeditor.fields import RichTextField
 
 class ExtendedPostForm(forms.ModelForm):
-    content = forms.CharField(widget=CKEditorUploadingWidget(), required=False, label=(u'Content'))
+    content = forms.CharField(widget=CKEditorWidget(), required=False, label=(u'Content'))
     class Meta:
         model = Post
         fields = "__all__"
