@@ -50,4 +50,4 @@ class PostAdmin(admin.ModelAdmin):
 
 #admin.site.unregister(FlatPage)
 #admin.site.register(FlatPage, ExtendedFlatPageAdmin)
-#admin.site.register(Post,PostAdmin)
+admin.site.register(Post,PostAdmin)
