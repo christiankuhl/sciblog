@@ -7,7 +7,7 @@ from ckeditor.widgets import CKEditorWidget
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 class ExtendedPostForm(forms.ModelForm):
-    locals()['content'] = forms.CharField(widget=CKEditorUploadingWidget(), required=False, label=(u'Content'))
+    content = forms.CharField(widget=CKEditorUploadingWidget(), required=False, label=(u'Content'))
     class Meta:
         model = Post
         fields = "__all__"
@@ -36,7 +36,7 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class ExtendedFlatPageForm(FlatpageForm):
-    locals()['content'] = forms.CharField(widget=CKEditorWidget(), required=False, label=(u'Content'))
+    content = RichTextField()
     class Meta:
         model = FlatPage
         fields = "__all__"
