@@ -145,9 +145,7 @@ CKEDITOR_CONFIGS = {
         'toolbar_Custom': [
             {'name': 'math', 'items': ['Mathjax', ]},
         ],
-        'toolbar': 'Custom',
-        'mathJaxLib': 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML',
-        'extraPlugins': ','.join(['mathjax',]),
+        'extraPlugins': 'mathjax'),
     },
 }
 
