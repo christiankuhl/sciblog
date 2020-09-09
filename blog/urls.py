@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemap import PostSitemap, FlatpageSitemap
 from blog.views import PostsFeed, getSearchResults
+from django.contrib.flatpages.models import FlatPage
 
 # Define sitemaps
 sitemaps = {
