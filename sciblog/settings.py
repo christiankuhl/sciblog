@@ -171,7 +171,7 @@ CKEDITOR_CONFIGS = {
             ]},
         ],
         'toolbar': 'YouCustomToolbarConfig',
-        'mathJaxLib': '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML',
+        'mathJaxLib': 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML',
         'tabSpaces': 4,
         'extraPlugins': ','.join(
             [
