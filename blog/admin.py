@@ -5,6 +5,7 @@ from django.contrib.flatpages.models import FlatPage
 from django import forms
 from ckeditor.widgets import CKEditorWidget
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from ckeditor.fields import RichTextField
 
 class ExtendedPostForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorUploadingWidget(), required=False, label=(u'Content'))
