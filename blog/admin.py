@@ -3,12 +3,12 @@ from blog.models import Post
 from django.contrib.flatpages.admin import FlatpageForm, FlatPageAdmin
 from django.contrib.flatpages.models import FlatPage
 from django import forms
-#from ckeditor.widgets import CKEditorWidget
-#from ckeditor_uploader.widgets import CKEditorUploadingWidget
-#from ckeditor.fields import RichTextField
+from ckeditor.widgets import CKEditorWidget
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from ckeditor.fields import RichTextField
 
 class ExtendedPostForm(forms.ModelForm):
-    content = forms.CharField(required=False, label=(u'Content'))
+    content = RichRextField() #forms.CharField(widget=CKEditorUploadingWidget(), required=False, label=(u'Content'))
     class Meta:
         model = Post
         fields = "__all__"
@@ -36,18 +36,18 @@ class PostAdmin(admin.ModelAdmin):
         obj.save()
 
 
-#class ExtendedFlatPageForm(FlatpageForm):
- #   content = RichTextField()
-  #  class Meta:
-   #     model = FlatPage
-    #    fields = "__all__"
+class ExtendedFlatPageForm(FlatpageForm):
+    content = RichTextField()
+    class Meta:
+        model = FlatPage
+        fields = "__all__"
 
-#class ExtendedFlatPageAdmin(FlatPageAdmin):
-#    form = ExtendedFlatPageForm
-#    fieldsets = (
-#        (None, {'fields': ('url', 'title', 'content', 'sites', )}),
-#    )
+class ExtendedFlatPageAdmin(FlatPageAdmin):
+    form = ExtendedFlatPageForm
+    fieldsets = (
+        (None, {'fields': ('url', 'title', 'content', 'sites', )}),
+    )
 
-#admin.site.unregister(FlatPage)
-#admin.site.register(FlatPage, ExtendedFlatPageAdmin)
+admin.site.unregister(FlatPage)
+admin.site.register(FlatPage, ExtendedFlatPageAdmin)
 admin.site.register(Post,PostAdmin)
