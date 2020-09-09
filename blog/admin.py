@@ -7,11 +7,11 @@ from django import forms
 #from ckeditor_uploader.widgets import CKEditorUploadingWidget
 #from ckeditor.fields import RichTextField
 
-#class ExtendedPostForm(forms.ModelForm):
-#    content = forms.CharField(widget=CKEditorWidget(), required=False, label=(u'Content'))
-#    class Meta:
-#        model = Post
-#        fields = "__all__"
+class ExtendedPostForm(forms.ModelForm):
+    content = forms.CharField(required=False, label=(u'Content'))
+    class Meta:
+        model = Post
+        fields = "__all__"
 
 class PostAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -30,7 +30,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'pub_date', 'was_published_recently')
     list_filter = ['pub_date']
     search_fields = ['title']
-    #form = ExtendedPostForm
+    form = ExtendedPostForm
     def save_model(self, request, obj, form, change):
         obj.author = request.user
         obj.save()
