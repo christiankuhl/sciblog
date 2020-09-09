@@ -139,5 +139,16 @@ GA_TRACKING_ID = ''
 # Ckeditor
 CKEDITOR_UPLOAD_PATH = "upload/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin': 'moono',
+        'toolbar_Custom': [
+            {'name': 'math', 'items': ['Mathjax', ]},
+        ],
+        'toolbar': 'Custom',
+        'mathJaxLib': '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML',
+        'extraPlugins': ','.join(['mathjax',]),
+    },
+}
 
 django_heroku.settings(locals())
