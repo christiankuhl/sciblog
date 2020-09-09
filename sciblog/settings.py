@@ -141,55 +141,14 @@ CKEDITOR_UPLOAD_PATH = "upload/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_CONFIGS = {
     'default': {
-        'entities': False,
-        'entities_greek': False,
-        'entities_latin': False,
         'skin': 'moono',
-        'toolbar_Basic': [
-            ['Source', '-', 'Bold', 'Italic']
+        'toolbar_Custom': [
+            {'name': 'math', 'items': ['Mathjax', ]},
         ],
-        'toolbar_YouCustomToolbarConfig': [
-            {'name': 'basicstyles',
-            'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
-            {'name': 'paragraph',
-            'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
-                    'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']},
-            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
-            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
-            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
-            '/', 
-            {'name': 'youcustomtools', 'items': [
-                'Maximize',
-                'ShowBlocks',
-                'Save',
-                'Source',
-                'Image',
-                'Embed',
-                'Mathjax',
-                'CodeSnippet',
-                'Preview',
-            ]},
-        ],
-        'toolbar': 'YouCustomToolbarConfig',
-        'mathJaxLib': 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML',
-        'tabSpaces': 4,
-        'extraPlugins': ','.join(
-            [
-                'div',
-                'autolink',
-                'autogrow',
-                'widget',
-                'lineutils',
-                'clipboard',
-                'dialog',
-                'dialogui',
-                'elementspath',
-                'mathjax',
-                'embed',
-                'codesnippet',
-                'image2',
-            ]),
-    }
+        'toolbar': 'Custom',
+        'mathJaxLib': 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML',
+        'extraPlugins': ','.join(['mathjax',]),
+    },
 }
 
 django_heroku.settings(locals())
