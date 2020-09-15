@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from django.http import HttpResponse
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemap import PostSitemap, FlatpageSitemap
-from blog.views import PostsFeed, getSearchResults
+from blog.views import PostsFeed, getSearchResults, MathematicalToyView
 from django.contrib.flatpages.models import FlatPage
 
 # Define sitemaps
