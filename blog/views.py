@@ -8,6 +8,7 @@ from django.core.paginator import Paginator, EmptyPage
 from django.db.models import Q
 from django.shortcuts import render_to_response
 from django.contrib.flatpages.models import FlatPage
+from django.views.generic import ListView
 
 class PostsFeed(Feed):
     title = "Music of Reason"
@@ -59,4 +60,14 @@ def getSearchResults(request):
     return render_to_response('blog/post_list.html',
                               {'page_obj': returned_page,
                                'object_list': returned_page.object_list,
+                               'has_latex_formula': any(o.has_latex_formula for o in returned_page.object_list),
                                'search': query})
+
+class PostListView(ListView):
+    model = Post
+    paginate_by = 5
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['has_latex_formula'] = any(o.has_latex_formula for o in context["object_list"])
+        return context

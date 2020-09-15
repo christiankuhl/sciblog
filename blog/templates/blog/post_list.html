@@ -1,6 +1,7 @@
 {% extends "blog/post_base.html" %}
 {% load current_site %}
 {% load social %}
+{% load staticfiles %}
 
 {% block title %}
     Music of Reason - A blog about math, finance and the universe
@@ -10,9 +11,9 @@
   <meta name="description" content="Music of Reason - A blog about math, finance and the universe">
   <meta name="author" content="Christian Kuhl">
   <link rel="canonical" href="{% http_or_https %}{% current_site %}">
-  {% if object_list|has_latex_formula %}
+  {% if has_latex_formula %}
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" src="{% static 'blog/js/mathjax/mathjax.min.js' %}">
+        <script id="MathJax-script" src="{% static 'blog/js/mathjax/mathjax.min.js' %}"></script>
         <script>MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX"}});</script>
     {% endif %}
 {% endblock %}
@@ -67,7 +68,6 @@
         </div>
         <a href="{% twitter_url %}">Twitter</a> •
         <a href="{% linkedin_url %}">Linkedin</a> •
-        <!-- <a href="{% rss_url %}">RSS</a> • -->
         {% for aboutp in about_pages %}
           <a href="{% http_or_https %}{% current_site %}{{ aboutp.url }}">About</a>
         {% endfor%}

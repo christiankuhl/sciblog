@@ -30,7 +30,7 @@
     <!-- Script MathJax to add latex code to the page (only loaded if there are latex formulas) -->
     {% if object.has_latex_formula %}
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" src="{% static 'blog/js/mathjax/mathjax.min.js' %}">
+        <script id="MathJax-script" src="{% static 'blog/js/mathjax/mathjax.min.js' %}"></script>
         <script>MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX"}});</script>
     {% endif %}
 
@@ -203,7 +203,6 @@ fbShareWLike = function(){
 <div class="footer container-footer" style="padding: 2rem 0rem 0.5rem;">
         <a href="{% twitter_url %}">Twitter</a> •
         <a href="{% linkedin_url %}">Linkedin</a> •
-        <!-- <a href="{% rss_url %}">RSS</a> • -->
         {% for aboutp in about_pages %}
           <a href="{% http_or_https %}{% current_site %}{{ aboutp.url }}">About</a>
         {% endfor%}

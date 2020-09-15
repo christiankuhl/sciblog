@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from django.http import HttpResponse
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemap import PostSitemap, FlatpageSitemap
-from blog.views import PostsFeed, getSearchResults, MathematicalToyView
+from blog.views import PostsFeed, getSearchResults, MathematicalToyView, PostListView
 from django.contrib.flatpages.models import FlatPage
 
 # Define sitemaps
@@ -17,7 +17,7 @@ sitemaps = {
 
 urlpatterns = [
     # Index
-    url(r'^(?P<page>\d+)?/?$', ListView.as_view(model=Post,paginate_by=5,), name='index'),
+    url(r'^(?P<page>\d+)?/?$', PostListView, name='index'),
     # Individual posts
     url(r'^blog/(?P<pub_date__year>\d{4})/(?P<slug>[a-zA-Z0-9-]+)/?$', DetailView.as_view(model=Post,), name='post'),
     # Post RSS feed

@@ -8,8 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 import os
-import django_heroku
-# from sciblog.private import SECRETKEY, DEBUG_FLAG
+# import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -49,8 +48,6 @@ SITE_ID = 3
 MIDDLEWARE= ('django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    #'django_mobile.middleware.MobileDetectionMiddleware',
-    #'django_mobile.middleware.SetFlavourMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -129,14 +126,7 @@ FACEBOOK_ID = '1452207144803935' #for Facebook tracking
 FACEBOOK_URL = ''
 TWITTER_URL = 'https://twitter.com/musicofreason'
 TWITTER_HANDLE = 'musicofreason'
-LINKEDIN_URL = ''
-GOOGLE_PLUS_URL = ''
-PINTEREST_URL = ''
-INSTAGRAM_URL = ''
-RSS_URL = ''
-
-# Google Analytics
-GA_TRACKING_ID = ''
+LINKEDIN_URL = 'https://www.linkedin.com/in/christian-kuhl-01b058120/'
 
 # Ckeditor
 CKEDITOR_UPLOAD_PATH = "upload/"
@@ -151,4 +141,4 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 #    },
 #}
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

@@ -32,18 +32,18 @@ def twitter_handle():
 def linkedin_url():
     return scisettings.LINKEDIN_URL
 
-@register.simple_tag
-def google_plus_url():
-    return scisettings.GOOGLE_PLUS_URL
+# @register.simple_tag
+# def google_plus_url():
+#     return scisettings.GOOGLE_PLUS_URL
 
-@register.simple_tag
-def pinterest_url():
-    return scisettings.PINTEREST_URL
+# @register.simple_tag
+# def pinterest_url():
+#     return scisettings.PINTEREST_URL
 
-@register.simple_tag
-def instagram_url():
-    return scisettings.INSTAGRAM_URL
+# @register.simple_tag
+# def instagram_url():
+#     return scisettings.INSTAGRAM_URL
 
-@register.simple_tag
-def rss_url():
-    return scisettings.RSS_URL
+# @register.simple_tag
+# def rss_url():
+#     return scisettings.RSS_URL
