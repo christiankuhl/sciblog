@@ -1,4 +1,4 @@
-from django.conf.urls import include, url
+from django.conf.urls import include, url, path
 from django.contrib import admin
 import django
 
@@ -6,6 +6,7 @@ import django
 
 urlpatterns = [
         url(r'^', include('blog.urls')),
+        path('pages/', include('django.contrib.flatpages.urls')),
         url(r'^admin/', admin.site.urls),
         url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     ]
