@@ -1,6 +1,11 @@
 {% extends "blog/post_base.html" %}
 {% load staticfiles %}
 {% load current_site %}
+{% load disqus_tags %}
+{% set_disqus_url object.get_absolute_url %}
+{% set_disqus_title object.title %}
+{% disqus_dev %}
+{% set_disqus_developer 1 %}
 
 {% block title %}
     {{ flatpage.title }}
@@ -104,4 +109,3 @@
 </div>
 
 {% endblock %}
-

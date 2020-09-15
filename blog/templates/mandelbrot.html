@@ -1,6 +1,11 @@
 {% extends "blog/post_base.html" %}
 {% load staticfiles %}
 {% load current_site %}
+{% load disqus_tags %}
+{% set_disqus_url object.get_absolute_url %}
+{% set_disqus_title object.title %}
+{% disqus_dev %}
+{% set_disqus_developer 1 %}
 
 {% block title %}
     {{ flatpage.title }}
@@ -101,6 +106,24 @@
         <a id="save" download="mandelbrot.png">Save</a>
       </menu>
     </div>
+</div>
+
+<!-- disqus comments -->
+<div class="container-comments">
+    <div class="row-comments">
+        {% disqus_show_comments %}
+    </div>
+</div>
+
+
+<!-- footer -->
+<div class="footer container-footer" style="padding: 2rem 0rem 0.5rem;">
+        <a href="{% twitter_url %}">Twitter</a> •
+        <a href="{% linkedin_url %}">Linkedin</a> •
+        <!-- <a href="{% rss_url %}">RSS</a> • -->
+        {% for aboutp in about_pages %}
+          <a href="{% http_or_https %}{% current_site %}{{ aboutp.url }}">About</a>
+        {% endfor%}
 </div>
 
 {% endblock %}
