@@ -31,6 +31,11 @@ class PostsFeed(Feed):
     def item_pubdate(self, item):
         return datetime.datetime.combine(item.pub_date, datetime.time())
 
+def MathematicalToyView(page):
+    def response(request):
+        return render_to_response(page)
+    return response
+
 def getSearchResults(request):
     """
     Search for a post by title or abstract. To search http://musicofreason.de/search?q=title

@@ -6,10 +6,11 @@
     {{ flatpage.title }}
 {% endblock %}
 
-{% block headers %}
+{% block add_headers %}
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" src="{% static 'blog/js/mathjax/mathjax.min.js' %}">
 <script>MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX"}});</script>
+<script type="module" src="{% static 'mandelbrot/mandelbrot.js' %}"></script>
 <link rel="stylesheet" href="{% static 'mandelbrot/mandelbrot.css' %}">
 {% endblock %}
 
@@ -84,7 +85,11 @@
 </div>
 
 <div id="blogContent" style="display: none">
-    <script type="module" src="{% static 'mandelbrot/mandelbrot.js' %}"></script>
+    <p>This is an interactive visualisation of the <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot set</a>, i.e. the set of all complex numbers \(c\in\mathbb{C}\) such that the sequence \((z_n)\subset\mathbb{C}\) defined by</p>
+    <p>\[z_0 = 0,\quad z_{n+1}=z_n^2+c\]</p>
+    <p>remains bounded. The image below is derived by iterating each point a fixed number of times and assigning a colour depending on wether the iterates of the point escape to infinity (and how fast) or not.</p>
+    <p>This demo is the first in a series of mathematically spirited Rust programs compiled to WASM that I&#39;d like to showcase here. The source code for this applet, should you be so inclined, can be found <a href="https://github.com/christiankuhl/mandelbrot-wasm">here</a>. Enjoy!</p>
+    <p>&nbsp;</p>
     <div id="container">
       <canvas id="mandelbrot-canvas"></canvas>
       <a class="right">&#10095;</a>
