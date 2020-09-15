@@ -122,9 +122,8 @@ fbShareWLike = function(){
     <!-- Social buttons -->
     <div class="row">
         <div class="six columns">&nbsp;</div>
-        <div class="four columns">
+        <div class="six columns">
             <div class="social-icons">
-                <!-- href="https://www.facebook.com/dialog/share?app_id={% facebook_id %}&display=popup&href={% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}&redirect_uri=http://{{ object.site }}{{ object.get_absolute_url }}" -->
                 <a class="social-icons-fb"  onclick="fbShareWLike()">
                 </a>
                 <a class="social-icons-tw"  href="https://twitter.com/intent/tweet?text={{ object.title }}&url={% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}&via={% twitter_handle %}">
