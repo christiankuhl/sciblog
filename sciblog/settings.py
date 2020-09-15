@@ -97,7 +97,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'blog','static'),
 )
 
-# TEMPLATE_LOADERS = ['django_mobile.loader.Loader']
+TEMPLATE_LOADERS = [
+    #'django_mobile.loader.Loader'
+]
 
 TEMPLATES = [
     {
