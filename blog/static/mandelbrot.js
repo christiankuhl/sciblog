@@ -1,4 +1,4 @@
-import init, { Application, Point, Key } from '/static/mandelbrot/pkg/mandelbrot_wasm.js" %}';
+import init, { Application, Point, Key } from './mandelbrot_wasm.js" %}';
 
 async function run() {
     const wasm = await init();
