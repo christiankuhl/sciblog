@@ -4,7 +4,6 @@ from django.contrib.flatpages.admin import FlatpageForm, FlatPageAdmin
 from django.contrib.flatpages.models import FlatPage
 from django import forms
 from ckeditor.widgets import CKEditorWidget
-# from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from ckeditor_uploader.fields import RichTextUploadingField
 
 class ExtendedPostForm(forms.ModelForm):
@@ -47,6 +46,8 @@ class ExtendedFlatPageAdmin(FlatPageAdmin):
     fieldsets = (
         (None, {'fields': ('url', 'title', 'content', 'sites', )}),
     )
+
+FlatPage.content = RichTextUploadingField
 
 admin.site.unregister(FlatPage)
 admin.site.register(FlatPage, ExtendedFlatPageAdmin)
