@@ -10,6 +10,11 @@
   <meta name="description" content="Music of Reason - A blog about math, finance and the universe">
   <meta name="author" content="Christian Kuhl">
   <link rel="canonical" href="{% http_or_https %}{% current_site %}">
+  {% if object_list|has_latex_formula %}
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" src="{% static 'blog/js/mathjax/mathjax.min.js' %}">
+        <script>MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX"}});</script>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
