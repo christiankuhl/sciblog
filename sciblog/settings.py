@@ -49,8 +49,8 @@ SITE_ID = 3
 MIDDLEWARE= ('django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django_mobile.middleware.MobileDetectionMiddleware',
-    'django_mobile.middleware.SetFlavourMiddleware',
+    #'django_mobile.middleware.MobileDetectionMiddleware',
+    #'django_mobile.middleware.SetFlavourMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -97,7 +97,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'blog','static'),
 )
 
-TEMPLATE_LOADERS = ['django_mobile.loader.Loader']
+# TEMPLATE_LOADERS = ['django_mobile.loader.Loader']
 
 TEMPLATES = [
     {
