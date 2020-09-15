@@ -128,9 +128,7 @@ fbShareWLike = function(){
                 <a class="social-icons-fb"  onclick="fbShareWLike()">
                 </a>
                 <a class="social-icons-tw"  href="https://twitter.com/intent/tweet?text={{ object.title }}&url={% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}&via={% twitter_handle %}">
-                </a>
-                <a class="social-icons-gp"  href="https://plus.google.com/share?url={% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}">
-                </a>
+                </a>                
                 <a class="social-icons-lk"  href="https://www.linkedin.com/shareArticle?mini=true&text={{ object.title }}&url={% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}&summary={{ object.abstract }}">
                 </a>
                 <a class="social-icons-email"  href="mailto:?subject={{ object.title }}&body=Check out this article I read on Music of Reason: {% http_or_https %}{{ object.site }}{{ object.get_absolute_url }}">
