@@ -9,6 +9,7 @@
 {% block headers %}
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" src="{% static 'blog/js/mathjax.min.js' %}">
+<link rel="stylesheet" href="{% static 'mandelbrot/mandelbrot.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -82,7 +83,18 @@
 </div>
 
 <div id="blogContent" style="display: none">
-        {{ flatpage.content }}
+    <script type="module" src="{% static 'mandelbrot/mandelbrot.js' %}"></script>
+    <div id="container">
+      <canvas id="mandelbrot-canvas"></canvas>
+      <a class="right">&#10095;</a>
+      <a class="left">&#10094;</a>
+      <a class="up">&#10095;</a>
+      <a class="down">&#10094;</a>
+      <menu id="controls">
+        <a id="reset">Reset</a>
+        <a id="save" download="mandelbrot.png">Save</a>
+      </menu>
+    </div>
 </div>
 
 {% endblock %}
