@@ -5,10 +5,10 @@ from django.contrib.flatpages.models import FlatPage
 from django import forms
 from ckeditor.widgets import CKEditorWidget
 # from ckeditor_uploader.widgets import CKEditorUploadingWidget
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class ExtendedPostForm(forms.ModelForm):
-    content = RichTextField() #forms.CharField(widget=CKEditorUploadingWidget(), required=False, label=(u'Content'))
+    content = RichTextUploadingField()
     class Meta:
         model = Post
         fields = "__all__"
@@ -37,7 +37,7 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class ExtendedFlatPageForm(FlatpageForm):
-    content = RichTextField()
+    content = RichTextUploadingField()
     class Meta:
         model = FlatPage
         fields = "__all__"
