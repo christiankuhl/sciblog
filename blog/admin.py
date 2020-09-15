@@ -3,7 +3,7 @@ from blog.models import Post
 from django.contrib.flatpages.admin import FlatpageForm, FlatPageAdmin
 from django.contrib.flatpages.models import FlatPage
 from django import forms
-from ckeditor.widgets import CKEditorWidget
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from ckeditor_uploader.fields import RichTextUploadingField
 
 class ExtendedPostForm(forms.ModelForm):
@@ -36,7 +36,7 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class ExtendedFlatPageForm(FlatpageForm):
-    content = RichTextUploadingField()
+    content = forms.CharField(widget=CKEditorUploadingWidget())
     class Meta:
         model = FlatPage
         fields = "__all__"
@@ -47,8 +47,6 @@ class ExtendedFlatPageAdmin(FlatPageAdmin):
         (None, {'fields': ('url', 'title', 'content', 'sites', )}),
     )
 
-FlatPage.content = RichTextUploadingField
-
 admin.site.unregister(FlatPage)
 admin.site.register(FlatPage, ExtendedFlatPageAdmin)
-admin.site.register(Post,PostAdmin)
+admin.site.register(Post, PostAdmin)
