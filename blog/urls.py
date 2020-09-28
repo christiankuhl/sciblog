@@ -28,8 +28,9 @@ urlpatterns = [
     url(r'^robots.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /admin/", content_type="text/plain")),
     #sitemap
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-    # Mandelbrot toy
+    # Math toys
     url(r'^mandelbrot', MathematicalToyView("mandelbrot.html")),
+    url(r'^vortices', MathematicalToyView("vortices.html")),
     # Flat pages
     url(r'^<page>$', DetailView.as_view(model=FlatPage,), name="flatpage"),
 ]
