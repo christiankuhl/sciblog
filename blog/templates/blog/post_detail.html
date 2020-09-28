@@ -75,8 +75,7 @@ fbShareWLike = function(){
 		$(function(){
 			var content_height;
 			var page = 1;
-            var $nocolumn_page = $(".page_template:first").clone().addClass("texto").css("display", "block");
-            $nocolumn_page.children(".content").eq(0).append($(".nocolumn").detach());
+            var $nocolumn = $(".nocolumn").detach();
 			function buildNewsletter(){
 				if($('#blogContent').contents().length > 0){
                     if(page == 1){
@@ -103,7 +102,9 @@ fbShareWLike = function(){
 					});
 				}
 				else{
-                    $("body").append($nocolumn_page);
+                    $page = $(".page_template:first").clone().addClass("texto").css("display", "block");
+                    $("body").append($page);                    
+                    $(".texto:last .content").append($nocolumn);
 				    $("body").append($(".container-comments"));
 				    $("body").append($(".footer"));
 				}
