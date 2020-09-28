@@ -1,130 +1,47 @@
-{% extends "blog/post_base.html" %}
-{% load staticfiles %}
-{% load current_site %}
-{% load social %}
-{% load disqus_tags %}
-{% set_disqus_url object.get_absolute_url %}
-{% set_disqus_title object.title %}
-{% disqus_dev %}
-{% set_disqus_developer 1 %}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 
-{% block title %}
-    {{ flatpage.title }}
-{% endblock %}
+<html lang="en">
+	<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>{% block title %} {% endblock %}</title>
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
 
-{% block headers %}
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" src="{% static 'blog/js/mathjax/mathjax.min.js' %}">
-<script>MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX"}});</script>
-<script type="module" src="{% static 'mandelbrot.js' %}"></script>
-<link rel="stylesheet" href="{% static 'mandelbrot.css' %}">
-{% endblock %}
+	<!-- Load template tags -->
+	{% load staticfiles %}
 
-{% block content %}
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" src="{% static 'blog/js/mathjax/mathjax.min.js' %}"></script>
+	<script>MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX"}});</script>
+	<script type="module" src="{% static 'mandelbrot.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'mandelbrot.css' %}">
+</head>
 
-<!-- Page columnizer -->
-	<script src="{% static 'blog/js/jquery.min.js' %}" type="text/javascript"></script>
-	<script src="{% static 'blog/js/jquery.columnizer.min.js' %}" type="text/javascript" charset="utf-8"></script>
-	<script>
-		$(function(){
-			var content_height;
-			var page = 1;
-			function buildNewsletter(){
-			    var content_lenght = $('#blogContent').contents().length
-				if($('#blogContent').contents().length > 0){
-				    console.log("$('#blogContent').contents().length = ", content_lenght)
-                    // if(page == 1){
-                    //     content_height = 650;
-					//     $page = $(".page_title:first").clone().addClass("texto").css("display", "block");
-					// }
-					// else{
-					    content_height = 1150;
-					    $page = $(".page_template:first").clone().addClass("texto").css("display", "block");
-					// }
-					$("body").append($page);
-					page++;
-					// here is the columnizer magic
-					$('#blogContent').columnize({
-						columns: 1,
-						target: ".texto:last .content",
-						overflow: {
-							height: content_height,
-							id: "#blogContent",
-							doneFunc: function(){
-								console.log("done with page",page-1);
-								buildNewsletter();
-							}
-						}
-					});
-				}
-				else{
-				    console.log("$('#blogContent').contents().length <= 0");
-				    $("body").append($(".container-comments"));
-				    $("body").append($(".footer"));
-				    console.log("Page building finished");
-				}
-			}
-			buildNewsletter();
-		});
-	</script>
-
-
-<!-- Page building -->
-<div class="page_title">
-    <div class="container">
-        <div class="row">
-            <div class="two columns">&nbsp;</div>
-            <div class="twelve columns content"></div>
-            <div class="two columns">&nbsp;</div>
-        </div>
-    </div>
-</div>
-
-<div class="page_template">
-    <div class="container">
-        <div class="row">
-            <div class="two columns">&nbsp;</div>
-            <div class="twelve columns content"></div>
-            <div class="two columns">&nbsp;</div>
-        </div>
-    </div>
-</div>
-
-<div id="blogContent" style="display: none">
-    <p>This is an interactive visualisation of the <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot set</a>, i.e. the set of all complex numbers \(c\in\mathbb{C}\) such that the sequence \((z_n)\subset\mathbb{C}\) defined by</p>
-    <p>\[z_0 = 0,\quad z_{n+1}=z_n^2+c\]</p>
-    <p>remains bounded. The image below is derived by iterating each point a fixed number of times and assigning a colour depending on wether the iterates of the point escape to infinity (and how fast) or not.</p>
-	<p>This demo is the first in a series of mathematically spirited Rust programs compiled to WASM that I&#39;d like to showcase here. You can zoom into the fractal by clicking left on a point (right-click to zoom out) and pan the image with the arrows on the side.</p>
-	<p>The source code for this applet, should you be so inclined, can be found <a href="https://github.com/christiankuhl/mandelbrot-wasm">here</a>. Enjoy!</p>
-    <p>&nbsp;</p>
-    <div id="container">
-      <canvas id="mandelbrot-canvas"></canvas>
-      <a class="right">&#10095;</a>
-      <a class="left">&#10094;</a>
-      <a class="up">&#10095;</a>
-      <a class="down">&#10094;</a>
-      <menu id="controls">
-        <a id="reset">Reset</a>
-        <a id="save" download="mandelbrot.png">Save</a>
-      </menu>
-    </div>
-</div>
-
-<!-- disqus comments -->
-<div class="container-comments">
-    <div class="row-comments">
-        {% disqus_show_comments %}
-    </div>
-</div>
-
-
-<!-- footer -->
-<div class="footer container-footer" style="padding: 2rem 0rem 0.5rem;">
-        <a href="{% twitter_url %}">Twitter</a> •
-        <a href="{% linkedin_url %}">Linkedin</a> •
-        {% for aboutp in about_pages %}
-          <a href="{% http_or_https %}{% current_site %}{{ aboutp.url }}">About</a>
-        {% endfor%}
-</div>
-
-{% endblock %}
+<body>
+	<div>
+		<p>This is an interactive visualisation of the <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot set</a>, i.e. the set of all complex numbers \(c\in\mathbb{C}\) such that the sequence \((z_n)\subset\mathbb{C}\) defined by</p>
+		<p>\[z_0 = 0,\quad z_{n+1}=z_n^2+c\]</p>
+		<p>remains bounded. The image below is derived by iterating each point a fixed number of times and assigning a colour depending on wether the iterates of the point escape to infinity (and how fast) or not.</p>
+		<p>This demo is the first in a series of mathematically spirited Rust programs compiled to WASM that I&#39;d like to showcase here. You can zoom into the fractal by clicking left on a point (right-click to zoom out) and pan the image with the arrows on the side.</p>
+		<p>The source code for this applet, should you be so inclined, can be found <a href="https://github.com/christiankuhl/mandelbrot-wasm">here</a>. Enjoy!</p>
+		<p>&nbsp;</p>
+		<div id="container">
+		<canvas id="mandelbrot-canvas"></canvas>
+		<a class="right">&#10095;</a>
+		<a class="left">&#10094;</a>
+		<a class="up">&#10095;</a>
+		<a class="down">&#10094;</a>
+		<menu id="controls">
+			<a id="reset">Reset</a>
+			<a id="save" download="mandelbrot.png">Save</a>
+		</menu>
+		</div>
+	</div>
+</body>
