@@ -11,7 +11,7 @@
 	<head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
-	<title>{% block title %} {% endblock %}</title>
+	<title>The Mandelbrot Set</title>
 	<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
 
 	<!-- Load template tags -->
@@ -22,10 +22,12 @@
 	<script>MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX"}});</script>
 	<script type="module" src="{% static 'mandelbrot.js' %}"></script>
 	<link rel="stylesheet" href="{% static 'mandelbrot.css' %}">
+	<link rel="stylesheet" href="{% static 'blog/css/skeleton.min.css' %}">
+	<link rel="stylesheet" href="{% static 'blog/css/paper.min.css' %}">
 </head>
 
 <body>
-	<div>
+	<div class="content">
 		<p>This is an interactive visualisation of the <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot set</a>, i.e. the set of all complex numbers \(c\in\mathbb{C}\) such that the sequence \((z_n)\subset\mathbb{C}\) defined by</p>
 		<p>\[z_0 = 0,\quad z_{n+1}=z_n^2+c\]</p>
 		<p>remains bounded. The image below is derived by iterating each point a fixed number of times and assigning a colour depending on wether the iterates of the point escape to infinity (and how fast) or not.</p>
