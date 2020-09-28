@@ -76,8 +76,7 @@ fbShareWLike = function(){
 			var content_height;
 			var page = 1;
             var nocolumn_remove = document.getElementsByClassName("nocolumn");
-            var nocolumn = nocolumn_remove.clone().addClass("texto").css("display", "block");
-            var blog = document.getElementById("#blogContent").removeChild(chld);
+            var blog = document.getElementById("#blogContent");
             for (j=0; j<nocolumn_remove.length; j++) {
                 elem = nocolumn_remove[j];
                 document.removeChild(elem);
@@ -111,7 +110,7 @@ fbShareWLike = function(){
 				else{
                     for (j=0; j<nocolumn.length; j++) {
                         elem = nocolumn[j];
-                        $("body").append(elem);
+                        $("body").append(elem.addClass("texto").css("display", "block"));
                     }
 				    $("body").append($(".container-comments"));
 				    $("body").append($(".footer"));
