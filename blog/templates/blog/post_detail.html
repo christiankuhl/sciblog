@@ -76,7 +76,6 @@ fbShareWLike = function(){
 			var content_height;
 			var page = 1;
             var $nocolumn = $(".nocolumn").detach();
-            var $nocolumn_page = $(".nocol_template:first").clone().css("display", "block");
 			function buildNewsletter(){
 				if($('#blogContent').contents().length > 0){
                     if(page == 1){
@@ -103,6 +102,7 @@ fbShareWLike = function(){
 					});
 				}
 				else{
+                    var $nocolumn_page = $(".nocol_template:first").clone().addClass("texto").css("display", "block");
                     $("body").append($nocolumn_page);                    
                     $(".texto:last .content").append($nocolumn);
 				    $("body").append($(".container-comments"));
