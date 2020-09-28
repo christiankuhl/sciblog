@@ -75,12 +75,8 @@ fbShareWLike = function(){
 		$(function(){
 			var content_height;
 			var page = 1;
-            var nocolumn_remove = document.getElementsByClassName("nocolumn");
-            var blog = document.getElementById("#blogContent");
-            for (j=0; j<nocolumn_remove.length; j++) {
-                elem = nocolumn_remove[j];
-                document.removeChild(elem);
-            }
+            var $nocolumn_page = $(".page_template:first").clone().addClass("texto").css("display", "block");
+            $nocolumn_page.children("content").append($(".nocolumn").detach());
 			function buildNewsletter(){
 				if($('#blogContent').contents().length > 0){
                     if(page == 1){
@@ -101,17 +97,13 @@ fbShareWLike = function(){
 							height: content_height,
 							id: "#blogContent",
 							doneFunc: function(){
-								console.log("done with page", page - 1);
 								buildNewsletter();
 							}
 						}
 					});
 				}
 				else{
-                    for (j=0; j<nocolumn.length; j++) {
-                        elem = nocolumn[j];
-                        $("body").append(elem.addClass("texto").css("display", "block"));
-                    }
+                    $("body").append($nocolumn_page);
 				    $("body").append($(".container-comments"));
 				    $("body").append($(".footer"));
 				}
