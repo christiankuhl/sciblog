@@ -101,8 +101,8 @@ fbShareWLike = function(){
 						}
 					});
 				}
-				else{
-                    $nocolumn.insertAfter(".page_template:last");              
+				else{             
+                    $("body").append($nocolumn); 
 				    $("body").append($(".container-comments"));
 				    $("body").append($(".footer"));
 				}
