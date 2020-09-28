@@ -76,7 +76,7 @@ fbShareWLike = function(){
 			var content_height;
 			var page = 1;
             var $nocolumn = $(".nocolumn").detach();
-            var $nocolumn_page = $(".page_template:first").clone().css("display", "block");
+            var $nocolumn_page = $(".nocol_template:first").clone().css("display", "block");
 			function buildNewsletter(){
 				if($('#blogContent').contents().length > 0){
                     if(page == 1){
@@ -173,6 +173,16 @@ fbShareWLike = function(){
 </div>
 
 <div class="page_template">
+    <div class="container">
+        <div class="row">
+            <div class="two columns">&nbsp;</div>
+            <div class="twelve columns content"></div>
+            <div class="two columns">&nbsp;</div>
+        </div>
+    </div>
+</div>
+
+<div class="nocol_template">
     <div class="container">
         <div class="row">
             <div class="two columns">&nbsp;</div>
