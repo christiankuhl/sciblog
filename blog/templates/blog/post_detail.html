@@ -102,7 +102,7 @@ fbShareWLike = function(){
 					});
 				}
 				else{
-                    $("body").append($nocolumn);                    
+                    $nocolumn.insertAfter(".texto:last");              
 				    $("body").append($(".container-comments"));
 				    $("body").append($(".footer"));
 				}
