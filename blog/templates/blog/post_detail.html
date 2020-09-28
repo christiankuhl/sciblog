@@ -75,9 +75,15 @@ fbShareWLike = function(){
 		$(function(){
 			var content_height;
 			var page = 1;
+            var nocolumn_remove = document.getElementsByClassName("nocolumn");
+            var nocolumn = nocolumn_remove.clone().addClass("texto").css("display", "block");
+            var blog = document.getElementById("#blogContent").removeChild(chld);
+            for (j=0; j<nocolumn_remove.length; j++) {
+                elem = nocolumn_remove[j];
+                document.removeChild(elem);
+            }
 			function buildNewsletter(){
-			    var content_lenght = $('#blogContent').contents().length
-				if($('#blogContent:not(nocolumn)').contents().length > 0){
+				if($('#blogContent').contents().length > 0){
                     if(page == 1){
                         content_height = 650;
 					    $page = $(".page_title:first").clone().addClass("texto").css("display", "block");
@@ -89,7 +95,7 @@ fbShareWLike = function(){
 					$("body").append($page);
 					page++;
 					// here is the columnizer magic
-					$('#blogContent:not(nocolumn)').columnize({
+					$('#blogContent').columnize({
 						columns: 2,
 						target: ".texto:last .content",
 						overflow: {
@@ -103,7 +109,10 @@ fbShareWLike = function(){
 					});
 				}
 				else{
-                    $("body").append($("#blogContent .nocolumn"));
+                    for (j=0; j<nocolumn.length; j++) {
+                        elem = nocolumn[j];
+                        $("body").append(elem);
+                    }
 				    $("body").append($(".container-comments"));
 				    $("body").append($(".footer"));
 				}
