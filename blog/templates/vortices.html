@@ -31,12 +31,13 @@
 		<div class="row">
             <div class="two columns">&nbsp;</div>
 			<div class="twelve columns content">
-				<!-- <p>This is an interactive visualisation of the <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot set</a>, i.e. the set of all complex numbers \(c\in\mathbb{C}\) such that the sequence \((z_n)\subset\mathbb{C}\) defined by</p>
-				<p>\[z_0 = 0,\quad z_{n+1}=z_n^2+c\]</p>
-				<p>remains bounded. The image below is derived by iterating each point a fixed number of times and assigning a colour depending on wether the iterates of the point escape to infinity (and how fast) or not.</p>
-				<p>This demo is the first in a series of mathematically spirited Rust programs compiled to WASM that I&#39;d like to showcase here. You can zoom into the fractal by clicking left on a point (right-click to zoom out) and pan the image with the arrows on the side.</p>
-				<p>The source code for this applet, should you be so inclined, can be found <a href="https://github.com/christiankuhl/mandelbrot-wasm">here</a>. Enjoy!</p>
-				<p>&nbsp;</p> -->
+				<p>This is an interactive visualisation of the N-vortex problem of planar hydrodynamics in the unit disk.</p>
+				<p>The coloured dots represent vortices in the fluid, whose strengths you can change on the right. You can drag vortices around, 
+					place additional vortices with a double click and delete existing vortices with a right click.
+				</p>
+				<p> This demo is the second in a series of mathematically spirited Rust programs compiled to WASM that I&#39;d like to showcase here.
+					The source code for this applet, should you be so inclined, can be found <a href="https://github.com/christiankuhl/mandelbrot-wasm">here</a>. Enjoy!</p>
+				<p>&nbsp;</p>
 				<div id="container">
 					<div class="contextmenu">
 					  <ul class="contextmenu-options">
@@ -44,13 +45,21 @@
 					  </ul>
 					</div>
 					<canvas id="vortex-canvas" width=600px height=600px></canvas>
-					<menu id="controls">
-					  <div id="gamma-controls" class="ctrl-column left"></div>
-					  <div class="ctrl-column right">
-						<div class="button"></div>
-					  </div>
-					</menu>
-				</div>
+					<div class="menu">
+					  <form name="example_menu" class="twocolumn">
+						<label>Example:
+						  <select id="example">
+						  </select>
+						</label>
+					  </form>
+					  <menu id="controls">
+						<div class="ctrl-column left">
+						  <div class="button"></div>
+						</div>
+						<div id="gamma-controls" class="ctrl-column right"></div>
+					  </menu>
+					</div>
+				  </div>
 			<div class="two columns">&nbsp;</div>
 		</div>
 	</div>
