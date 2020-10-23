@@ -32,11 +32,12 @@
             <div class="two columns">&nbsp;</div>
 			<div class="twelve columns content">
 				<p>This is an interactive visualisation of the N-vortex problem of planar hydrodynamics in the unit disk.</p>
-				<p>The coloured dots represent vortices in the fluid, whose strengths you can change on the right. You can drag vortices around, 
+				<p>The coloured dots represent vortices in the fluid, whose strengths you can change on the right. You can select one of the examples, 
+					drag vortices around, 
 					place additional vortices with a double click and delete existing vortices with a right click.
 				</p>
-				<p> This demo is the second in a series of mathematically spirited Rust programs compiled to WASM that I&#39;d like to showcase here.
-					The source code for this applet, should you be so inclined, can be found <a href="https://github.com/christiankuhl/mandelbrot-wasm">here</a>. Enjoy!</p>
+				<p> This demo is the second in a <a href="https://www.musicofreason.de/search?q=rust">series of mathematically spirited Rust programs compiled to WASM that I&#39;d like to showcase here.
+					The source code for this applet, should you be so inclined, can be found <a href="https://github.com/christiankuhl/vortexdynamics-wasm">here</a>. Enjoy!</p>
 				<p>&nbsp;</p>
 				<div id="container">
 					<div class="contextmenu">
@@ -44,7 +45,7 @@
 						<li class="contextmenu-option" id="delete-vortex">Delete vortex</li>
 					  </ul>
 					</div>
-					<canvas id="vortex-canvas" width=600px height=600px></canvas>
+					<canvas id="vortex-canvas" width=400px height=400px></canvas>
 					<div class="menu">
 					  <form name="example_menu" class="twocolumn">
 						<label>Example:
