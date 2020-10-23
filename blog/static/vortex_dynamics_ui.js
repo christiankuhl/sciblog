@@ -417,7 +417,7 @@ async function run(event) {
   mainLoop();
 }
 
-fetch("./examples.json").then(res => {
+fetch("./static/examples.json").then(res => {
   res.json().then(examples => {
     var example_menu = document.example_menu.example;
     for (var i = 0; i < examples.length; i++) {
