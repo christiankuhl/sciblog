@@ -92,6 +92,8 @@ TEMPLATES = [
 
 HTTPS = bool(os.environ.get("HTTPS"))
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 FACEBOOK_ID = '1452207144803935'
 FACEBOOK_URL = ''
 TWITTER_URL = 'https://twitter.com/musicofreason'
