@@ -31,7 +31,6 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'django.contrib.syndication',
     'django.contrib.sitemaps',
-    'disqus',
     'ckeditor',
     'ckeditor_uploader',
 )
@@ -93,8 +92,6 @@ TEMPLATES = [
 
 HTTPS = bool(os.environ.get("HTTPS"))
 
-DISQUS_API_KEY = os.environ.get("DISQUS_API_KEY")
-DISQUS_WEBSITE_SHORTNAME = os.environ.get("DISQUS_WEBSITE_SHORTNAME")
 FACEBOOK_ID = '1452207144803935'
 FACEBOOK_URL = ''
 TWITTER_URL = 'https://twitter.com/musicofreason'

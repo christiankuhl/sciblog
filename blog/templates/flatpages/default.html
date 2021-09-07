@@ -2,11 +2,6 @@
 {% load staticfiles %}
 {% load current_site %}
 {% load social %}
-{% load disqus_tags %}
-{% set_disqus_url object.get_absolute_url %}
-{% set_disqus_title object.title %}
-{% disqus_dev %}
-{% set_disqus_developer 1 %}
 
 {% block title %}
     {{ flatpage.title }}
@@ -90,13 +85,6 @@
 
 <div id="blogContent" style="display: none">
         {{ flatpage.content }}
-</div>
-
-<!-- disqus comments -->
-<div class="container-comments">
-    <div class="row-comments">
-        {% disqus_show_comments %}
-    </div>
 </div>
 
 <!-- footer -->
