@@ -6,7 +6,7 @@ import markdown2
 import datetime
 from django.core.paginator import Paginator, EmptyPage
 from django.db.models import Q
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.contrib.flatpages.models import FlatPage
 from django.views.generic import ListView
 
@@ -34,7 +34,7 @@ class PostsFeed(Feed):
 
 def MathematicalToyView(page):
     def response(request):
-        return render_to_response(page)
+        return render(request, page)
     return response
 
 def getSearchResults(request):
@@ -57,7 +57,7 @@ def getSearchResults(request):
         returned_page = pages.page(pages.num_pages)
 
     # Display the search results
-    return render_to_response('blog/post_list.html',
+    return render(request, 'blog/post_list.html',
                               {'page_obj': returned_page,
                                'object_list': returned_page.object_list,
                                'has_latex_formula': any(o.has_latex_formula for o in returned_page.object_list),
