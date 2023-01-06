@@ -1,13 +1,8 @@
 {% extends "blog/post_base.html" %}
-{% load staticfiles %}
+{% load static %}
 {% load social %}
 {% load analytics %}
 {% load current_site %}
-{% load disqus_tags %}
-{% set_disqus_url object.get_absolute_url %}
-{% set_disqus_title object.title %}
-{% disqus_dev %}
-{% set_disqus_developer 1 %}
 
 {% block title %}
         {{ object.title }}
@@ -182,13 +177,6 @@ fbShareWLike = function(){
 
 <div id="blogContent" style="display: none">
         {{ object.content|safe }}
-</div>
-
-<!-- disqus comments -->
-<div class="container-comments">
-    <div class="row-comments">
-        {% disqus_show_comments %}
-    </div>
 </div>
 
 <!-- footer -->
